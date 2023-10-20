@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de multiplicar</title>
+    <script src="tablaMultiplicar.js"></script>
+</head>
+
+<body>
+    <h1>
+        Tabla de multiplicar
+    </h1>
+    <form onsubmit="mostrarTabla()">
+        <label for="numero">Introduce el número:</label>
+        <input id="numero" type="number" required />
+        <input type="submit" value="Mostrar tabla" />
+    </form>
+    <div id="tabla">
+    </div>
+</body>
+
+</html>
+
+<!--
+TABLAS DE MULTIPLICAR - EXPLICACIÓN DEL CÓDIGO HTML
+
+    <!DOCTYPE html>: Esta es una declaración que indica que el documento sigue las especificaciones de HTML. En este caso, está utilizando HTML5.
+
+    <html lang="es-ES">: Esto inicia el elemento raíz de HTML y establece el atributo "lang" en "es-ES", lo que significa que el contenido de la página está en español de España.
+
+    <head>: Dentro de la etiqueta <head> se incluyen metadatos y recursos relacionados con la página.
+
+        <meta charset="UTF-8">: Este elemento establece la codificación de caracteres de la página en UTF-8, que es una codificación de caracteres universalmente reconocida que admite una amplia gama de caracteres y símbolos.
+
+        <title>Tabla de multiplicar</title>: Define el título de la página, que se muestra en la barra de título del navegador.
+
+        <script src="tablaMultiplicar.js"></script>: Aquí se está vinculando un archivo JavaScript externo llamado "tablaMultiplicarNove.js" a la página. Este archivo debe contener funciones relacionadas con la tabla de multiplicar y se cargará y ejecutará en el navegador cuando se cargue la página.
+
+    <body>: El contenido visible de la página se encuentra dentro del elemento <body>.
+
+        <h1>Tabla de multiplicar</h1>: Esto crea un encabezado de nivel 1 que muestra el título "Tabla de multiplicar" en la página.
+
+        <form onsubmit="mostrarTabla()">: Este es un formulario que permite al usuario ingresar un número. El atributo "onsubmit" se establece en "mostrarTabla()", lo que significa que cuando el usuario envíe el formulario, se llamará a la función JavaScript llamada "mostrarTabla()".
+
+            <label for="numero">Introduce el número:</label>: Etiqueta que describe el campo de entrada.
+
+            <input id="numero" type="number" required />: Un campo de entrada de tipo número donde los usuarios pueden ingresar un número. El atributo "required" indica que este campo es obligatorio.
+
+            <input type="submit" value="Mostrar tabla" />: Un botón de envío del formulario con el texto "Mostrar tabla".
+
+        <div id="tabla">: Este es un div con el atributo "id" establecido en "tabla". Será el espacio donde se mostrará la tabla de multiplicar en respuesta a la entrada del usuario.
+
+-->
