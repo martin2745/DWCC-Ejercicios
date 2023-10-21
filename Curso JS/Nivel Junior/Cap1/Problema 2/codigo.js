@@ -54,4 +54,4 @@ mayoresEdad = ordenAlfabetico(mayoresEdad);
 console.log(mayoresEdad);
 
 ganador = sorteo(mayoresEdad);
-console.log(ganador);
+console.log(ganador[0].toUpperCase());
