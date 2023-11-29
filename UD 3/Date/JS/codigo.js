@@ -125,6 +125,7 @@ function mostrarFechaEnFormato3(formato) {
 
 // Prueba del programa
 const formatoUsuario3 = prompt('Introduce el formato \n1 17/02/2016, \n2 Mércores, 17 de febreiro de 2016 \n3 Wednesday, February 17, 2016');
+console.log("\nEjercicio 3");
 mostrarFechaEnFormato3(formatoUsuario3);
 
 /*
@@ -177,6 +178,7 @@ function formatoHora(opcion) {
 
 const formatoUsuario4 = prompt('Introduce el formato \n1 17/02/2016, \n2 Mércores, 17 de febreiro de 2016 \n3 Wednesday, February 17, 2016');
 
+console.log("\nEjercicio 4");
 console.log(formatoHora(formatoUsuario4));
 
 /*
