@@ -3,6 +3,7 @@ function diasHastaFinalDeCurso() {
   const finalDeCurso = new Date(hoy.getFullYear() + 1, 5, 25);
 
   const duracionDia = 1000 * 60 * 60 * 24;
+  console.log("Ejercicio 1");
   console.log("Día actual ", hoy);
   console.log("Final de curso ", finalDeCurso);
   console.log("Diferencia en milisegundos", finalDeCurso - hoy);
@@ -14,6 +15,8 @@ console.log("Días restantes hasta final de curso: " + diasHastaFinalDeCurso());
 
 /*
   EXPLICACIÓN
+
+    const finalDeCurso = new Date(hoy.getFullYear() + 1, 5, 25); //Mismo día del año siguiente 25/6/2024.
 
     const hoy = new Date();: Se crea un objeto Date llamado hoy, que representa la fecha y hora actuales. 
     Este objeto contendrá la fecha y la hora exactas en el momento en que se ejecuta la función.
@@ -40,6 +43,7 @@ function aniversarioEnFinDeSemana() {
   inicioAnho.setDate(1);
 
   const anos = [];
+
   while (inicioAnho.getFullYear() <= 2100) {
     if (tuAniversario.getDay() === 0 || tuAniversario.getDay() === 6) {
       anos.push(inicioAnho.getFullYear());
@@ -51,6 +55,7 @@ function aniversarioEnFinDeSemana() {
   return anos;
 }
 
+console.log("\nEjercicio 2");
 console.log(
   "Años en los que tu aniversario caerá en fin de semana: " +
     aniversarioEnFinDeSemana()
@@ -86,12 +91,81 @@ console.log(
 
 /*******************************************************************************/
 
+function mostrarFechaEnFormato3(formato) {
+  const opcionesFecha = { day: 'numeric', month: 'numeric', year: 'numeric' };
+  const opcionesDiaSemana = { weekday: 'long' };
+  const opcionesMesCompleto = { month: 'long' };
+
+  const fechaActual = new Date();
+
+  switch (formato) {
+      case '1':
+          console.log(fechaActual.toLocaleDateString('es-ES', opcionesFecha));
+          break;
+      case '2':
+          const diaSemana = fechaActual.toLocaleDateString('es-ES', opcionesDiaSemana);
+          const dia = fechaActual.getDate();
+          const mesCompleto = fechaActual.toLocaleDateString('es-ES', opcionesMesCompleto);
+          const año = fechaActual.getFullYear();
+
+          console.log(`${diaSemana}, ${dia} de ${mesCompleto} de ${año}`);
+          break;
+      case '3':
+          const dayOfWeek = fechaActual.toLocaleDateString('en-US', { weekday: 'long' });
+          const month = fechaActual.toLocaleDateString('en-US', { month: 'long' });
+          const day = fechaActual.getDate();
+          const year = fechaActual.getFullYear();
+
+          console.log(`${dayOfWeek}, ${month} ${day}, ${year}`);
+          break;
+      default:
+          console.log('Formato no válido. Introduce 1, 2 o 3.');
+  }
+}
+
+// Prueba del programa
+const formatoUsuario3 = prompt('Introduce el formato \n1 17/02/2016, \n2 Mércores, 17 de febreiro de 2016 \n3 Wednesday, February 17, 2016');
+mostrarFechaEnFormato3(formatoUsuario3);
+
+/*
+  EXPLICACIÓN
+
+  Función mostrarFechaEnFormato(formato): Esta función toma un parámetro formato, que es un valor proporcionado por el usuario.
+  Este valor determina el formato en el que se mostrará la fecha actual. La función utiliza un bloque switch para seleccionar
+  el formato correspondiente y luego imprime la fecha en ese formato.
+
+  Opciones de formato: Se han definido tres conjuntos de opciones de formato para las fechas, uno para cada formato solicitado.
+  Estos conjuntos de opciones se utilizan en las llamadas a toLocaleDateString para formatear la fecha de acuerdo con las
+  convenciones específicas de cada formato.
+
+  Obtención de la fecha actual: Se crea un objeto Date llamado fechaActual que representa la fecha y la hora actuales.
+
+  Switch Statement: Se utiliza un bloque switch para evaluar el valor de formato proporcionado por el usuario. Dependiendo
+  de este valor, se ejecutará uno de los casos del switch para mostrar la fecha en el formato correspondiente.
+
+  Caso '1': Muestra la fecha en el formato 'dd/mm/yyyy' utilizando toLocaleDateString con opciones en español.
+
+  Caso '2': Muestra la fecha en el formato 'Día de la semana, dd de Mes de yyyy' utilizando varias llamadas a toLocaleDateString
+  con opciones en español.
+
+  Caso '3': Muestra la fecha en el formato 'Day of the week, Month dd, yyyy' utilizando llamadas a toLocaleDateString con
+  opciones en inglés.
+
+  Default: Si el usuario ingresa un formato no válido, se imprime un mensaje indicando que el formato no es válido.
+
+  Prueba del programa: Se utiliza prompt para solicitar al usuario que ingrese el formato deseado. Este valor se pasa a la
+  función mostrarFechaEnFormato para que imprima la fecha en el formato correspondiente
+
+*/
+
+/*******************************************************************************/
+
 function formatoHora(opcion) {
   const horaActual = new Date();
   switch (opcion) {
-    case 1:
+    case '1':
       return horaActual.toLocaleTimeString();
-    case 2:
+    case '2':
       return horaActual.toLocaleString("en-US", {
         hour: "2-digit",
         minute: "2-digit",
@@ -101,8 +175,9 @@ function formatoHora(opcion) {
   }
 }
 
-console.log(formatoHora(1)); // Formato 1
-console.log(formatoHora(2)); // Formato 2
+const formatoUsuario4 = prompt('Introduce el formato \n1 17/02/2016, \n2 Mércores, 17 de febreiro de 2016 \n3 Wednesday, February 17, 2016');
+
+console.log(formatoHora(formatoUsuario4));
 
 /*
   EXPLICACIÓN
@@ -126,3 +201,4 @@ console.log(formatoHora(2)); // Formato 2
     no válida". Esto se hace para manejar cualquier valor de opcion que no esté en el rango de
     opciones válidas.
 */
+
