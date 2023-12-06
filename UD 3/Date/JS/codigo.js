@@ -36,7 +36,9 @@ console.log("Días restantes hasta final de curso: " + diasHastaFinalDeCurso());
 /*******************************************************************************/
 
 function aniversarioEnFinDeSemana() {
-  const tuAniversario = new Date("2023-10-31");
+  const tuAniversario = new Date(
+    prompt("Introduce una fecha en formato YYYY-MM-DD")
+  );
 
   const inicioAnho = new Date();
   inicioAnho.setMonth(0);
@@ -92,39 +94,49 @@ console.log(
 /*******************************************************************************/
 
 function mostrarFechaEnFormato3(formato) {
-  const opcionesFecha = { day: 'numeric', month: 'numeric', year: 'numeric' };
-  const opcionesDiaSemana = { weekday: 'long' };
-  const opcionesMesCompleto = { month: 'long' };
+  const opcionesFecha = { day: "numeric", month: "numeric", year: "numeric" };
+  const opcionesDiaSemana = { weekday: "long" };
+  const opcionesMesCompleto = { month: "long" };
 
   const fechaActual = new Date();
 
   switch (formato) {
-      case '1':
-          console.log(fechaActual.toLocaleDateString('es-ES', opcionesFecha));
-          break;
-      case '2':
-          const diaSemana = fechaActual.toLocaleDateString('es-ES', opcionesDiaSemana);
-          const dia = fechaActual.getDate();
-          const mesCompleto = fechaActual.toLocaleDateString('es-ES', opcionesMesCompleto);
-          const año = fechaActual.getFullYear();
+    case "1":
+      console.log(fechaActual.toLocaleDateString("es-ES", opcionesFecha));
+      break;
+    case "2":
+      const diaSemana = fechaActual.toLocaleDateString(
+        "es-ES",
+        opcionesDiaSemana
+      );
+      const dia = fechaActual.getDate();
+      const mesCompleto = fechaActual.toLocaleDateString(
+        "es-ES",
+        opcionesMesCompleto
+      );
+      const año = fechaActual.getFullYear();
 
-          console.log(`${diaSemana}, ${dia} de ${mesCompleto} de ${año}`);
-          break;
-      case '3':
-          const dayOfWeek = fechaActual.toLocaleDateString('en-US', { weekday: 'long' });
-          const month = fechaActual.toLocaleDateString('en-US', { month: 'long' });
-          const day = fechaActual.getDate();
-          const year = fechaActual.getFullYear();
+      console.log(`${diaSemana}, ${dia} de ${mesCompleto} de ${año}`);
+      break;
+    case "3":
+      const dayOfWeek = fechaActual.toLocaleDateString("en-US", {
+        weekday: "long",
+      });
+      const month = fechaActual.toLocaleDateString("en-US", { month: "long" });
+      const day = fechaActual.getDate();
+      const year = fechaActual.getFullYear();
 
-          console.log(`${dayOfWeek}, ${month} ${day}, ${year}`);
-          break;
-      default:
-          console.log('Formato no válido. Introduce 1, 2 o 3.');
+      console.log(`${dayOfWeek}, ${month} ${day}, ${year}`);
+      break;
+    default:
+      console.log("Formato no válido. Introduce 1, 2 o 3.");
   }
 }
 
 // Prueba del programa
-const formatoUsuario3 = prompt('Introduce el formato \n1 17/02/2016, \n2 Mércores, 17 de febreiro de 2016 \n3 Wednesday, February 17, 2016');
+const formatoUsuario3 = prompt(
+  "Introduce el formato \n1 17/02/2016, \n2 Mércores, 17 de febreiro de 2016 \n3 Wednesday, February 17, 2016"
+);
 console.log("\nEjercicio 3");
 mostrarFechaEnFormato3(formatoUsuario3);
 
@@ -164,9 +176,9 @@ mostrarFechaEnFormato3(formatoUsuario3);
 function formatoHora(opcion) {
   const horaActual = new Date();
   switch (opcion) {
-    case '1':
-      return horaActual.toLocaleTimeString();
-    case '2':
+    case "1":
+      return horaActual.toLocaleTimeString("es-ES");
+    case "2":
       return horaActual.toLocaleString("en-US", {
         hour: "2-digit",
         minute: "2-digit",
@@ -176,7 +188,9 @@ function formatoHora(opcion) {
   }
 }
 
-const formatoUsuario4 = prompt('Introduce el formato \n1 17/02/2016, \n2 Mércores, 17 de febreiro de 2016 \n3 Wednesday, February 17, 2016');
+const formatoUsuario4 = prompt(
+  "Introduce el formato \n1 14:35:07, \n2 02:35 PM ou 02:35 AM"
+);
 
 console.log("\nEjercicio 4");
 console.log(formatoHora(formatoUsuario4));
@@ -203,4 +217,3 @@ console.log(formatoHora(formatoUsuario4));
     no válida". Esto se hace para manejar cualquier valor de opcion que no esté en el rango de
     opciones válidas.
 */
-
